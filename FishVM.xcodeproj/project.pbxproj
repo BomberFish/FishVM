@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		D66FE2C92CC4252900A0FBA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D66FE2AF2CC4252400A0FBA0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D66FE2B62CC4252400A0FBA0;
+			remoteInfo = FishVM;
+		};
+		D66FE2D32CC4252900A0FBA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D66FE2AF2CC4252400A0FBA0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D66FE2B62CC4252400A0FBA0;
+			remoteInfo = FishVM;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D66FE2B72CC4252400A0FBA0 /* FishVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FishVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D66FE2C82CC4252900A0FBA0 /* FishVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FishVMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D66FE2D22CC4252900A0FBA0 /* FishVMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FishVMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D66FE2B92CC4252400A0FBA0 /* FishVM */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = FishVM;
+			sourceTree = "<group>";
+		};
+		D66FE2CB2CC4252900A0FBA0 /* FishVMTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = FishVMTests;
+			sourceTree = "<group>";
+		};
+		D66FE2D52CC4252900A0FBA0 /* FishVMUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = FishVMUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D66FE2B42CC4252400A0FBA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D66FE2C52CC4252900A0FBA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D66FE2CF2CC4252900A0FBA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D66FE2AE2CC4252400A0FBA0 = {
+			isa = PBXGroup;
+			children = (
+				D66FE2B92CC4252400A0FBA0 /* FishVM */,
+				D66FE2CB2CC4252900A0FBA0 /* FishVMTests */,
+				D66FE2D52CC4252900A0FBA0 /* FishVMUITests */,
+				D66FE2B82CC4252400A0FBA0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D66FE2B82CC4252400A0FBA0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D66FE2B72CC4252400A0FBA0 /* FishVM.app */,
+				D66FE2C82CC4252900A0FBA0 /* FishVMTests.xctest */,
+				D66FE2D22CC4252900A0FBA0 /* FishVMUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D66FE2B62CC4252400A0FBA0 /* FishVM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D66FE2DC2CC4252900A0FBA0 /* Build configuration list for PBXNativeTarget "FishVM" */;
+			buildPhases = (
+				D66FE2B32CC4252400A0FBA0 /* Sources */,
+				D66FE2B42CC4252400A0FBA0 /* Frameworks */,
+				D66FE2B52CC4252400A0FBA0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D66FE2B92CC4252400A0FBA0 /* FishVM */,
+			);
+			name = FishVM;
+			packageProductDependencies = (
+			);
+			productName = FishVM;
+			productReference = D66FE2B72CC4252400A0FBA0 /* FishVM.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D66FE2C72CC4252900A0FBA0 /* FishVMTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D66FE2DF2CC4252900A0FBA0 /* Build configuration list for PBXNativeTarget "FishVMTests" */;
+			buildPhases = (
+				D66FE2C42CC4252900A0FBA0 /* Sources */,
+				D66FE2C52CC4252900A0FBA0 /* Frameworks */,
+				D66FE2C62CC4252900A0FBA0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D66FE2CA2CC4252900A0FBA0 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D66FE2CB2CC4252900A0FBA0 /* FishVMTests */,
+			);
+			name = FishVMTests;
+			packageProductDependencies = (
+			);
+			productName = FishVMTests;
+			productReference = D66FE2C82CC4252900A0FBA0 /* FishVMTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D66FE2D12CC4252900A0FBA0 /* FishVMUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D66FE2E22CC4252900A0FBA0 /* Build configuration list for PBXNativeTarget "FishVMUITests" */;
+			buildPhases = (
+				D66FE2CE2CC4252900A0FBA0 /* Sources */,
+				D66FE2CF2CC4252900A0FBA0 /* Frameworks */,
+				D66FE2D02CC4252900A0FBA0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D66FE2D42CC4252900A0FBA0 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D66FE2D52CC4252900A0FBA0 /* FishVMUITests */,
+			);
+			name = FishVMUITests;
+			packageProductDependencies = (
+			);
+			productName = FishVMUITests;
+			productReference = D66FE2D22CC4252900A0FBA0 /* FishVMUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D66FE2AF2CC4252400A0FBA0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					D66FE2B62CC4252400A0FBA0 = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					D66FE2C72CC4252900A0FBA0 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = D66FE2B62CC4252400A0FBA0;
+					};
+					D66FE2D12CC4252900A0FBA0 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = D66FE2B62CC4252400A0FBA0;
+					};
+				};
+			};
+			buildConfigurationList = D66FE2B22CC4252400A0FBA0 /* Build configuration list for PBXProject "FishVM" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D66FE2AE2CC4252400A0FBA0;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = D66FE2B82CC4252400A0FBA0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D66FE2B62CC4252400A0FBA0 /* FishVM */,
+				D66FE2C72CC4252900A0FBA0 /* FishVMTests */,
+				D66FE2D12CC4252900A0FBA0 /* FishVMUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D66FE2B52CC4252400A0FBA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D66FE2C62CC4252900A0FBA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D66FE2D02CC4252900A0FBA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D66FE2B32CC4252400A0FBA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D66FE2C42CC4252900A0FBA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D66FE2CE2CC4252900A0FBA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D66FE2CA2CC4252900A0FBA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D66FE2B62CC4252400A0FBA0 /* FishVM */;
+			targetProxy = D66FE2C92CC4252900A0FBA0 /* PBXContainerItemProxy */;
+		};
+		D66FE2D42CC4252900A0FBA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D66FE2B62CC4252400A0FBA0 /* FishVM */;
+			targetProxy = D66FE2D32CC4252900A0FBA0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D66FE2DA2CC4252900A0FBA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D66FE2DB2CC4252900A0FBA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		D66FE2DD2CC4252900A0FBA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FishVM/FishVM.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FishVM/Preview Content\"";
+				DEVELOPMENT_TEAM = 8JKVMYCRTJ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.bomberfish.FishVM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D66FE2DE2CC4252900A0FBA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FishVM/FishVM.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FishVM/Preview Content\"";
+				DEVELOPMENT_TEAM = 8JKVMYCRTJ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.bomberfish.FishVM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		D66FE2E02CC4252900A0FBA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8JKVMYCRTJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.bomberfish.FishVMTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FishVM.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FishVM";
+			};
+			name = Debug;
+		};
+		D66FE2E12CC4252900A0FBA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8JKVMYCRTJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.bomberfish.FishVMTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FishVM.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FishVM";
+			};
+			name = Release;
+		};
+		D66FE2E32CC4252900A0FBA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8JKVMYCRTJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.bomberfish.FishVMUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = FishVM;
+			};
+			name = Debug;
+		};
+		D66FE2E42CC4252900A0FBA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8JKVMYCRTJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.bomberfish.FishVMUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = FishVM;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D66FE2B22CC4252400A0FBA0 /* Build configuration list for PBXProject "FishVM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D66FE2DA2CC4252900A0FBA0 /* Debug */,
+				D66FE2DB2CC4252900A0FBA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D66FE2DC2CC4252900A0FBA0 /* Build configuration list for PBXNativeTarget "FishVM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D66FE2DD2CC4252900A0FBA0 /* Debug */,
+				D66FE2DE2CC4252900A0FBA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D66FE2DF2CC4252900A0FBA0 /* Build configuration list for PBXNativeTarget "FishVMTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D66FE2E02CC4252900A0FBA0 /* Debug */,
+				D66FE2E12CC4252900A0FBA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D66FE2E22CC4252900A0FBA0 /* Build configuration list for PBXNativeTarget "FishVMUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D66FE2E32CC4252900A0FBA0 /* Debug */,
+				D66FE2E42CC4252900A0FBA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D66FE2AF2CC4252400A0FBA0 /* Project object */;
+}
