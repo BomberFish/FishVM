@@ -30,9 +30,9 @@ struct VMCreationView: View {
             }
             HStack {
                 Text("RAM amount")
-//                Slider(value: .convert($vm.ramAmount), in: 512...16384, step: 1.0, label: {
-//                    Text("RAM")
-//                })
+                //                Slider(value: .convert($vm.ramAmount), in: 512...16384, step: 1.0, label: {
+                //                    Text("RAM")
+                //                })
                 Spacer()
                 TextField("#", value: $vm.ramAmount, formatter: NumberFormatter())
                     .frame(width: 60)
@@ -66,9 +66,6 @@ struct VMCreationView: View {
                     panel.canChooseFiles = true
                     panel.allowsMultipleSelection = false
                     panel.canChooseDirectories = false
-//                    if let path = vm.attachedUSBImagePath {
-//                        panel.url = path
-//                    }
                     panel.allowedContentTypes = [.diskImage]
                     panel.resolvesAliases = true
                     panel.canCreateDirectories = true

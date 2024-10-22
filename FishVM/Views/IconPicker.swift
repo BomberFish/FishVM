@@ -8,6 +8,26 @@ import AssetCatalogWrapper
 
 fileprivate let logger = Logger(subsystem: "FishVM", category: "Icon Picker")
 
+
+
+struct IconView: View {
+    public var icon: Icon
+    public var size: Int
+    var body: some View {
+        switch icon.type {
+        case .system:
+            Image(systemName: icon.name)
+                .foregroundStyle(.accent)
+                .font(.system(size: CGFloat(size)))
+                .accessibilityLabel(icon.name)
+        case .assetCatalog:
+            Image(icon.name, label: Text(icon.name))
+                .resizable()
+                .frame(maxWidth: CGFloat(size), minHeight: CGFloat(size), maxHeight: CGFloat(size))
+        }
+    }
+}
+
 struct IconPicker: View {
     @Binding var icon: Icon
     @State var showingPopup = false
@@ -21,21 +41,10 @@ struct IconPicker: View {
                         .stroke(Color(NSColor.tertiarySystemFill), lineWidth: 2)
                 )
                 .cornerRadius(14)
-            Group {
-                switch icon.type {
-                case .system:
-                    Image(systemName: icon.name)
-                        .foregroundStyle(.accent)
-                        .font(.system(size: 40))
-                case .assetCatalog:
-                    Image(icon.name)
-                        .resizable()
-                        .frame(width: 40, height: 40)
+            IconView(icon: icon, size: 40)
+                .onTapGesture {
+                    showingPopup.toggle()
                 }
-            }
-            .onTapGesture {
-                showingPopup.toggle()
-            }
             
         }
         .popover(isPresented: $showingPopup) {
@@ -56,48 +65,34 @@ struct IconPickerPopup: View {
         ScrollView {
             LazyVGrid(columns: .init(repeating: .init(), count: 4), spacing: 8) {
                 ForEach(icons) {icon in
-                    Group {
-                        switch icon.type {
-                        case .system:
-                            Image(systemName: icon.name)
-                                .foregroundStyle(.accent)
-                                .font(.system(size: 40))
-                        case .assetCatalog:
-                            Image(icon.name)
-                                .resizable()
-                                .frame(width: 40, height: 40)
+                    IconView(icon: icon, size: 40)
+                        .frame(width: 80, height: 80)
+                        .onTapGesture {
+                            selectedIcon = icon
                         }
-                    }
-                    .frame(width: 80, height: 80)
-                    .onTapGesture {
-                        selectedIcon = icon
-                    }
-                    .background(selectedIcon == icon ? Color(NSColor.labelColor).opacity(0.1) : Color.transparent)
-                    .cornerRadius(8, antialiased: false)
+                        .background(selectedIcon == icon ? Color(NSColor.labelColor).opacity(0.1) : Color.transparent)
+                        .cornerRadius(8, antialiased: false)
                 }
             }
             .padding()
         }
         .frame(minWidth: 400, minHeight: 500, maxHeight: 500)
         .onAppear {
-//            if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != "1" {
             let assetCatalogURL = Bundle.main.bundleURL.appendingPathComponent(Bundle.main.resourceURL!.appendingPathComponent("Assets.car").path())
-                guard FileManager.default.fileExists(atPath: assetCatalogURL.path()) else { fatalError("Application bundle is corrupt. We cannot continue execution safely. (Reason: File \(assetCatalogURL.path()) does not exist)") }
-                if let (catalog, renditions) = try? AssetCatalogWrapper.shared.renditions(forCarArchive: assetCatalogURL) {
-                    for rendition in renditions {
-                        if rendition.type == .image || rendition.type == .imageSet || rendition.type == .multiSizeImageSet {
-                            for subrendition in rendition.renditions {
-                                logger.debug("Found subrendition: \(subrendition.name)")
-                                if subrendition.name != "Icon" && subrendition.name != "AppIcon" && !subrendition.name.starts(with: "ZZZZPackedAsset") {
-                                    logger.notice("VALID RENDITION: \(subrendition.name)")
-                                    icons.append(Icon(type: .assetCatalog, name: subrendition.name))
-                                }
+            guard FileManager.default.fileExists(atPath: assetCatalogURL.path()) else { fatalError("Application bundle is corrupt. We cannot continue execution safely. (Reason: File \(assetCatalogURL.path()) does not exist)") }
+            if let (_, renditions) = try? AssetCatalogWrapper.shared.renditions(forCarArchive: assetCatalogURL) {
+                for rendition in renditions {
+                    if rendition.type == .image || rendition.type == .imageSet || rendition.type == .multiSizeImageSet {
+                        for subrendition in rendition.renditions {
+                            logger.debug("Found subrendition: \(subrendition.name)")
+                            if subrendition.name != "Icon" && subrendition.name != "AppIcon" && !subrendition.name.starts(with: "ZZZZPackedAsset") {
+                                logger.notice("VALID RENDITION: \(subrendition.name)")
+                                icons.append(Icon(type: .assetCatalog, name: subrendition.name))
                             }
                         }
                     }
                 }
-                
-//            }
+            }
         }
     }
 }
