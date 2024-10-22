@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D697255C2CC7DDEA00E5F188 /* AssetCatalogWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = D697255B2CC7DDEA00E5F188 /* AssetCatalogWrapper */; };
+		D697255E2CC7DDEA00E5F188 /* CompressionWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = D697255D2CC7DDEA00E5F188 /* CompressionWrapper */; };
+		D69725602CC7DDEA00E5F188 /* DiskImagesWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = D697255F2CC7DDEA00E5F188 /* DiskImagesWrapper */; };
+		D697256C2CC7F08600E5F188 /* DefaultCodable in Frameworks */ = {isa = PBXBuildFile; productRef = D697256B2CC7F08600E5F188 /* DefaultCodable */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		D66FE2C92CC4252900A0FBA0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +59,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D697255C2CC7DDEA00E5F188 /* AssetCatalogWrapper in Frameworks */,
+				D697256C2CC7F08600E5F188 /* DefaultCodable in Frameworks */,
+				D697255E2CC7DDEA00E5F188 /* CompressionWrapper in Frameworks */,
+				D69725602CC7DDEA00E5F188 /* DiskImagesWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +89,7 @@
 				D66FE2B92CC4252400A0FBA0 /* FishVM */,
 				D66FE2CB2CC4252900A0FBA0 /* FishVMTests */,
 				D66FE2D52CC4252900A0FBA0 /* FishVMUITests */,
+				D697256A2CC7F08600E5F188 /* Frameworks */,
 				D66FE2B82CC4252400A0FBA0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +102,13 @@
 				D66FE2D22CC4252900A0FBA0 /* FishVMUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D697256A2CC7F08600E5F188 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +131,10 @@
 			);
 			name = FishVM;
 			packageProductDependencies = (
+				D697255B2CC7DDEA00E5F188 /* AssetCatalogWrapper */,
+				D697255D2CC7DDEA00E5F188 /* CompressionWrapper */,
+				D697255F2CC7DDEA00E5F188 /* DiskImagesWrapper */,
+				D697256B2CC7F08600E5F188 /* DefaultCodable */,
 			);
 			productName = FishVM;
 			productReference = D66FE2B72CC4252400A0FBA0 /* FishVM.app */;
@@ -195,6 +218,10 @@
 			);
 			mainGroup = D66FE2AE2CC4252400A0FBA0;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D697255A2CC7DDEA00E5F188 /* XCRemoteSwiftPackageReference "PrivateKits" */,
+				D69725692CC7EFE000E5F188 /* XCRemoteSwiftPackageReference "DefaultCodable" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D66FE2B82CC4252400A0FBA0 /* Products */;
 			projectDirPath = "";
@@ -410,7 +437,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = ca.bomberfish.FishVM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -442,7 +469,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = ca.bomberfish.FishVM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -559,6 +586,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D697255A2CC7DDEA00E5F188 /* XCRemoteSwiftPackageReference "PrivateKits" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NSAntoine/PrivateKits";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		D69725692CC7EFE000E5F188 /* XCRemoteSwiftPackageReference "DefaultCodable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/DefaultCodable";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D697255B2CC7DDEA00E5F188 /* AssetCatalogWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D697255A2CC7DDEA00E5F188 /* XCRemoteSwiftPackageReference "PrivateKits" */;
+			productName = AssetCatalogWrapper;
+		};
+		D697255D2CC7DDEA00E5F188 /* CompressionWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D697255A2CC7DDEA00E5F188 /* XCRemoteSwiftPackageReference "PrivateKits" */;
+			productName = CompressionWrapper;
+		};
+		D697255F2CC7DDEA00E5F188 /* DiskImagesWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D697255A2CC7DDEA00E5F188 /* XCRemoteSwiftPackageReference "PrivateKits" */;
+			productName = DiskImagesWrapper;
+		};
+		D697256B2CC7F08600E5F188 /* DefaultCodable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D69725692CC7EFE000E5F188 /* XCRemoteSwiftPackageReference "DefaultCodable" */;
+			productName = DefaultCodable;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D66FE2AF2CC4252400A0FBA0 /* Project object */;
 }

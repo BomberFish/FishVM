@@ -17,6 +17,8 @@ struct VMCreationView: View {
                 TextField(text: $vm.name, label: {
                     Text("Name")
                 })
+                Spacer()
+                IconPicker(icon: $vm.icon)
             }
             HStack {
                 Slider(value: .convert($vm.cpuCores), in: 1.0...Float(ProcessInfo.processInfo.processorCount), step: 1.0, label: {

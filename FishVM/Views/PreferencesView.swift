@@ -13,6 +13,7 @@ struct PreferencesView: View {
                 LazyVStack(alignment: .leading, spacing: 4) {
                     Text("Nothing here yet!")
                 }
+                Spacer()
             }
             Tab("Display", systemImage: "display") {
                 LazyVStack(alignment: .leading, spacing: 4) {
@@ -20,17 +21,24 @@ struct PreferencesView: View {
                         "Automatically resize guest display based on window size", isOn: $autoResize
                     )
                     Toggle("Close viewer window when connection to guest display is lost", isOn: $closeWindow)
-
+                    Spacer()
                 }
             }
             Tab("About", systemImage: "info.circle") {
-                LazyVStack(alignment: .leading, spacing: 4) {
-                    Text("FishVM")
-                        .font(.largeTitle.weight(.bold))
-                    Text(
-                        "Version \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")"
-                    )
-                    Text("© 2024 BomberFish")
+                HStack {
+                    Spacer()
+                    Image("Icon")
+                        .resizable()
+                        .frame(width: 150, height: 150)
+                    LazyVStack(alignment: .leading, spacing: 4) {
+                        Text("FishVM")
+                            .font(.largeTitle.weight(.bold))
+                        Text(
+                            "Version \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")"
+                        )
+                        Text("© 2024 BomberFish")
+                    }
+                    Spacer()
                 }
             }
         }
@@ -38,7 +46,7 @@ struct PreferencesView: View {
         .toggleStyle(.checkbox)
         .tabViewStyle(.tabBarOnly)
         .toolbarTitleDisplayMode(.inlineLarge)
-        .frame(minWidth: 250, minHeight: 75)
+        .frame(minWidth: 250, maxWidth: 500, minHeight: 75, maxHeight: 900)
     }
 }
 

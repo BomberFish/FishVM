@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "knoppix.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -5,6 +5,7 @@
 import SwiftUI
 import Virtualization
 import OSLog
+import DefaultCodable
 
 fileprivate let logger = Logger(subsystem: "FishVM", category: "VMManager")
 
@@ -185,7 +186,7 @@ class VMManager: NSObject, ObservableObject, VZVirtualMachineDelegate {
     }
 
     
-    func stopRunningVM() async throws {
+    func stopRunningVM() throws {
         stopInProgress = true
         defer { stopInProgress = false }
         if let vm = currentlyRunningVZVM {
@@ -194,7 +195,9 @@ class VMManager: NSObject, ObservableObject, VZVirtualMachineDelegate {
             if vm.canRequestStop {
                 try vm.requestStop()
             } else {
-                try await vm.stop()
+                Task {
+                    try await vm.stop()
+                }
             }
         } else {
             logger.fault("stopRunningVM() called without a running VM")
@@ -214,19 +217,16 @@ class VMManager: NSObject, ObservableObject, VZVirtualMachineDelegate {
             if file.hasDirectoryPath && file.isFileURL && file.pathExtension == "bundle" {
                 let decoder = PropertyListDecoder()
                 let plistURL = file.appendingPathComponent("config.plist")
-                guard let data = try? Data(contentsOf: plistURL) else {
-                    logger.fault("Could not get data of \(plistURL.path())")
-                    continue
+                do {
+                    let data = try Data(contentsOf: plistURL)
+                    let config = try decoder.decode(VMConfig.self, from: data)
+                    logger.debug("Successfully enumerated VM at path \(file.path())")
+                    vms.append(.init(path: file, config: config))
+                } catch {
+                    logger.fault("Error getting config: \(error)")
                 }
-                guard let config = try? decoder.decode(VMConfig.self, from: data) else {
-                    logger.error("Invalid configuration at \(plistURL.path())")
-                    continue
-                }
-                logger.debug("Successfully enumerated VM at path \(file.path())")
-                vms.append(.init(path: file, config: config))
             } else {
                 logger.warning("File \(file.path()) isn't meant to be here!")
-                continue
             }
         }
 
@@ -299,21 +299,6 @@ struct VZBetterGenericMachineIdentifier: Codable, Equatable, Hashable {
 
 struct VirtualMachine: Identifiable, Equatable, Hashable {
     
-//    public init?(rawValue: RawValue) {
-//        guard let data = rawValue.data(using: .utf8),
-//              let result = try? JSONDecoder().decode(VirtualMachine.self, from: data) else { return nil }
-//        self = result
-//    }
-//    
-//    public var rawValue: String {
-//        guard let data = try? JSONEncoder().encode(self),
-//            let result = String(data: data, encoding: .utf8)
-//        else {
-//            return "{}"
-//        }
-//        return result
-//    }
-    
     let id: VZGenericMachineIdentifier
     let path: URL
     var config: VMConfig
@@ -344,11 +329,49 @@ struct VirtualMachine: Identifiable, Equatable, Hashable {
     }
 }
 
+enum IconType: String, Codable {
+    case system = "SystemImage"
+    case assetCatalog = "AssetCatalog"
+}
+
+extension Icon: DefaultValueProvider {
+    static let `default` = Icon(type: .system, name: "pc")
+}
+
+struct Icon: Identifiable, Codable, Equatable, Hashable {
+    var id: String
+    
+    var type: IconType
+    var name: String
+    
+    enum CodingKeys: String, CodingKey {
+        case type = "Type"
+        case name = "Name"
+    }
+    
+    init(from decoder: any Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        type = try values.decode(IconType.self, forKey: .type)
+        name = try values.decode(String.self, forKey: .name)
+        id = "\(type.rawValue).\(name)"
+    }
+    
+    init(type: IconType, name: String) {
+        self.id = "\(type.rawValue).\(name)"
+        self.type = type
+        self.name = name
+    }
+}
+
 struct VMConfig: Identifiable, Codable, Equatable, Hashable {
     let id: VZBetterGenericMachineIdentifier
     
     /// The name of the VM.
     var name: String
+    
+    /// The icon
+    @Default<Icon>
+    var icon: Icon
     
     /// Where the image to attach is located
     var attachedUSBImagePath: URL?
@@ -365,39 +388,14 @@ struct VMConfig: Identifiable, Codable, Equatable, Hashable {
     /// Height of the framebuffer
     var fbHeight: Int
     
-    init(id: VZBetterGenericMachineIdentifier = .init(), name: String, attachedUSBImagePath: URL?, cpuCores: Int, ramAmount: Int, fbWidth: Int = 1280, fbHeight: Int = 720) {
+    init(id: VZBetterGenericMachineIdentifier = .init(), name: String, icon: Icon = .init(type: .system, name: "desktopcomputer"), attachedUSBImagePath: URL?, cpuCores: Int, ramAmount: Int, fbWidth: Int = 1280, fbHeight: Int = 720) {
         self.id = VZBetterGenericMachineIdentifier()
         self.name = name
+        self.icon = icon
         self.attachedUSBImagePath = attachedUSBImagePath
         self.cpuCores = cpuCores
         self.ramAmount = ramAmount
         self.fbWidth = fbWidth
         self.fbHeight = fbHeight
     }
-    
-//    init(name: String, attachedUSBImagePath: String?, cpuCores: Int, ramAmount: Int) {
-//        self.id = VZBetterGenericMachineIdentifier()
-//        self.name = name
-//        if let attachedUSBImagePath {
-//            self.attachedUSBImagePath = URL(fileURLWithPath: attachedUSBImagePath)
-//        }
-//        self.cpuCores = cpuCores
-//        self.ramAmount = ramAmount
-//    }
-//    
-//    init(id: VZBetterGenericMachineIdentifier, name: String, attachedUSBImagePath: URL?, cpuCores: Int, ramAmount: Int) {
-//        self.id = id
-//        self.name = name
-//        self.attachedUSBImagePath = attachedUSBImagePath
-//        self.cpuCores = cpuCores
-//        self.ramAmount = ramAmount
-//    }
-//    
-//    init(id: VZGenericMachineIdentifier, name: String, attachedUSBImagePath: URL?, cpuCores: Int, ramAmount: Int, fbWidth: Int = 1280, fbHeight: Int = 720) {
-//        self.id = .init(value: id)
-//        self.name = name
-//        self.attachedUSBImagePath = attachedUSBImagePath
-//        self.cpuCores = cpuCores
-//        self.ramAmount = ramAmount
-//    }
 }

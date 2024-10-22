@@ -12,7 +12,7 @@ struct ContentView: View {
     @Environment(\.dismissWindow) var dismissWindow
     @State var filename: String = "Select a disk image..."
     
-    @ViewBuilder var content: some View {
+    @ViewBuilder var detail: some View {
         if let selectedVM {
             
             let vm: Binding<VirtualMachine> = Binding(get: {
@@ -28,6 +28,11 @@ struct ContentView: View {
             
             List {
                 Group {
+                    HStack {
+                        Text("Icon")
+                        Spacer()
+                        IconPicker(icon: vm.config.icon)
+                    }
                     HStack {
                         Slider(value: .convert(vm.config.cpuCores), in: 1.0...Float(ProcessInfo.processInfo.processorCount), step: 1.0, label: {
                             Text("CPU Cores")
@@ -91,50 +96,69 @@ struct ContentView: View {
         }
     }
     
-    var body: some View {
-        NavigationSplitView(sidebar: {
-            List(manager.vms, selection: $selectedVM) {vm in
-                Label(vm.config.name, systemImage: "desktopcomputer")
-                    .tag(vm)
-                    .contextMenu {
-                        Button("Start") {
-                            Task {
-                                try? await manager.stopRunningVM()
-                            }
-                            do {
-                                try manager.startVM(vm)
-                                openWindow(id: "runningvm")
-                            } catch {
-                                defaultLogger.error("\(error)")
-                            }
-                            
+    @ViewBuilder var sidebar: some View {
+        List(manager.vms, selection: $selectedVM) {vm in
+            Group {
+                switch vm.config.icon.type {
+                case .system:
+                    Label(title: {
+                        Text(vm.config.name)
+                    }, icon: {
+                        Image(systemName: vm.config.icon.name)
+                            .foregroundStyle(.accent)
+                            .font(.system(size: 14))
+                    })
+                case .assetCatalog:
+                    Label(title: {
+                        Text(vm.config.name)
+                    }, icon: {
+                        Image(vm.config.icon.name)
+                            .resizable()
+                            .frame(maxWidth: 14, minHeight: 14, maxHeight: 14)
+                    })
+                        
+                }
+            }
+                .tag(vm)
+                .contextMenu {
+                    Button("Start") {
+                        if let _ = manager.currentlyRunningVM {
+                            try? manager.stopRunningVM()
                         }
-                        Button("Delete") {
-                            if manager.currentlyRunningVM == vm {
-                                Task {
-                                    dismissWindow(id: "runningvm")
-                                    try? await manager.stopRunningVM()
-                                }
-                            }
-                            do {
-                                try manager.deleteVM(vm)
-                                selectedVM = VMManager.shared.vms.first
-                            } catch {
-                                defaultLogger.error("\(error)")
-                            }
+                        do {
+                            try manager.startVM(vm)
+                            openWindow(id: "runningvm")
+                        } catch {
+                            defaultLogger.error("\(error)")
+                        }
+                        
+                    }
+                    Button("Delete") {
+                        if manager.currentlyRunningVM == vm {
+                            dismissWindow(id: "runningvm")
+                            try? manager.stopRunningVM()
+                        }
+                        do {
+                            try manager.deleteVM(vm)
+                            selectedVM = VMManager.shared.vms.first
+                        } catch {
+                            defaultLogger.error("\(error)")
                         }
                     }
-            }
-        }, detail: {
-            
-            content
-            
-        })
+                }
+        }
+    }
+    
+    var body: some View {
+        NavigationSplitView(sidebar: {sidebar}, detail: {detail})
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 HStack {
                     if let selectedVM {
                         Button("Start the selected VM", systemImage: "play") {
+                            if let _ = manager.currentlyRunningVM {
+                                try? manager.stopRunningVM()
+                            }
                             do {
                                 try manager.startVM(selectedVM)
                                 openWindow(id: "runningvm")

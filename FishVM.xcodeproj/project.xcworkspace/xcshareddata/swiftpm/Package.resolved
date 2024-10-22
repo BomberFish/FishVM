@@ -1,0 +1,24 @@
+{
+  "originHash" : "bfcfa79e61ff147911437f835aae65d1803bf922b0322fc175ec56d6e9f30909",
+  "pins" : [
+    {
+      "identity" : "defaultcodable",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/gonzalezreal/DefaultCodable",
+      "state" : {
+        "revision" : "b75cdb44b772cdd278ea0d029d3f079384b0d87d",
+        "version" : "1.2.1"
+      }
+    },
+    {
+      "identity" : "privatekits",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/NSAntoine/PrivateKits",
+      "state" : {
+        "branch" : "main",
+        "revision" : "6a828987dfeb0685b3eb655738b1785f07fcb48c"
+      }
+    }
+  ],
+  "version" : 3
+}

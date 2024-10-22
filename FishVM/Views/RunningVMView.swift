@@ -54,10 +54,8 @@ struct RunningVMView: View {
                         vmFocused = true
                     }
                     Button(manager.currentlyRunningVZVM == nil ? "Start" : "Stop", systemImage: manager.currentlyRunningVZVM == nil ? "play" : "stop") {
-                        Task {
-                            if manager.currentlyRunningVZVM != nil {
-                                try? await manager.stopRunningVM()
-                            }
+                        if manager.currentlyRunningVZVM != nil {
+                            try? manager.stopRunningVM()
                         }
                     }
                 }
